@@ -1,6 +1,8 @@
 <?php
 require_once dirname(__FILE__).'/../config.php';
 
+include _ROOT_PATH. '/app/security/check.php' ; 
+
 function getParams( &$credit_value, &$credit_years, &$credit_interest ) { 
 
     $credit_value = isset($_REQUEST['credit_value']) ? $_REQUEST['credit_value'] : null;
