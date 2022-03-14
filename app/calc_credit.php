@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__FILE__).'/../config.php';
 
-include _ROOT_PATH. '/app/security/check.php' ; 
+include _ROOT_PATH.'/app/security/check.php'; 
 
 function getParams( &$credit_value, &$credit_years, &$credit_interest ) { 
 
@@ -12,19 +12,19 @@ function getParams( &$credit_value, &$credit_years, &$credit_interest ) {
 
 function validate( &$credit_value, &$credit_years, &$credit_interest, &$messages ) {
 
-    if (! isset($credit_value) && isset($credit_years) && isset($credit_interest) ) {
+    if (! (isset($credit_value) && isset($credit_years) && isset($credit_interest) )) {
         return false;
         }
 
-    if ($credit_value=="") {
+    if ($credit_value== "") {
         $messages [] = 'Nie podano wartości kredytu!';
         }
 
-    if ($credit_years=="") {
+    if ($credit_years== "") {
         $messages [] = 'Nie podano lat kredytu!';
         }
 
-    if ($credit_interest=="") {
+    if ($credit_interest== "") {
         $messages [] = 'Nie podano oprocentowania!';
         }
 
@@ -67,7 +67,5 @@ getParams($credit_value, $credit_years, $credit_interest);
 if ( validate($credit_value, $credit_years, $credit_interest, $messages )) {
         process($credit_value, $credit_years, $credit_interest, $result);
 }
-
-    
 
 include 'calc_credit_view.php';
