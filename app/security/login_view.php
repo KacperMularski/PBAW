@@ -1,44 +1,86 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
-    <head>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-        <meta charset="UTF-8">
-        <title> Logowanie </title>
-    </head>
+<html>
+	<head>
+		<title>Kalkulator kredytowy</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="<?php print(_APP_URL); ?>/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="<?php print(_APP_URL); ?>/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-<body>
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
 
-<div style="width:90%; margin: 4em auto;">
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<div class="logo"><span class="icon fa-gem"></span></div>
+							<h2>Kalkulator kredytowy</h2>
+							
+						</div>
+					</section>
 
-<form action="<?php print(_APP_ROOT); ?>/app/security/login.php" method="post" class="pure-form pure-form-stacked" >
-    <fieldset>
-        <legend>Logowanie</legend></br>
-        <label for="id_login"> Login: </label>
-        <input id="id_login" type="text" name="login" value="<?php out($form['login']); ?>" /><br />
-
-        <label for="id_pass"> Hasło: </label>
-        <input id="id_pass" type="password" name="pass" /><br />
-
-        <input type="submit" value="Zaloguj" class="pure-button pure-button-primary"/>
-    </fieldset>
-</form>
-
-<?php
-if (isset($messages)) {
-        if(count ($messages) > 0 ) {
-            echo '<ol style="margin: 18px; padding: 15px 12px 12px 30px; border-radius: 10px; background-color: #f88; width:290px;">';
-            foreach ( $messages as $key => $msg) {
-                echo '<li>'.$msg.'</li>';
-            }
-            echo '</ol>';
-
-        }
-
-}
-?>
+				<!-- Wrapper -->
+					<section id="wrapper">
 
 
-</div>
+						
+				<!-- Footer -->
+					<section id="footer" class="wrapper spotlight style1">
+						<div class="inner">
+							<h2 class="major">Logowanie</h2>
+                        
+						
+							<form action="<?php print(_APP_ROOT); ?>/app/security/login.php" method="post">
+								<div class="fields">
+									<div class="field">
+									<label for="id_login">Login: </label></br>
+									<input id="id_login" type="text" name="login" value="<?php out($form['login']); ?>"><br />	
+									</div>
+									<div class="field">
+									<label for="id_credit_years"> Hasło: </label></br>
+									<input id="id_credit_years" type="password" name="pass"><br />	
+									</div>
+									
+								</div>
+								<ul class="actions">
+								<li>
+								<input type="submit" value="Zaloguj" />
+								</li>	
+								</ul>
+							</form>
+							
+				<?php
+				if (isset($messages)) {
+						if(count ($messages) > 0 ) {
+							echo '<ol style="margin: 18px; padding: 15px 12px 12px 30px; border-radius: 10px; background-color: #f88; width:290px; font-size:26px">';
+							foreach ( $messages as $key => $msg) {
+								echo '<li>'.$msg.'</li>';
+							}
+							echo '</ol>';
 
-</body>
+						}
+
+				}
+				?>
+                        
+				
+							<ul class="copyright">
+								<li>&copy; Untitled Inc. All rights reserved.</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="<?php print(_APP_URL); ?>/assets/js/jquery.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/jquery.scrollex.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/browser.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/breakpoints.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/util.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/main.js"></script>
+
+	</body>
 </html>

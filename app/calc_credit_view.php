@@ -1,57 +1,106 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<html>
+	<head>
+		<title>Kalkulator kredytowy</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="<?php print(_APP_URL); ?>/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="<?php print(_APP_URL); ?>/assets/css/noscript.css" /></noscript>
+	</head>
 
-<head>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <title> Kalkulator kredytowy </title>
-</head>
+	<body class="is-preload">
 
-<body>
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
 
-<div style="width:90%; margin: 2em auto;">
-    <a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
-</div>
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<div class="logo"><span class="icon fa-gem"></span></div>
+							<h2>Kalkulator kredytowy</h2>
+							
+						</div>
+					</section>
 
-<div style="width:90%; margin: 4em auto;">
+				<!-- Wrapper -->
+					<section id="wrapper">
+						
+				<!-- Footer -->
+					<section id="footer" class="wrapper spotlight style1">
+						<div class="inner">
+							<h2 class="major">Oblicz</h2>
+                            <ul class="actions">
+                                <li><a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="button">Wyloguj</a></li>
+                            </ul>
+                        
+						
+							<form action="<?php print(_APP_ROOT); ?>/app/calc_credit.php" method="post">
+                
+								<div class="fields">
+									<div class="field">
+									<label for="id_credit_value">Kwota kredytu: </label></br>
+									<input id="credit_value" type="text" name="credit_value" value="<?php out($credit_value) ?>"><br />	
+									</div>
+									<div class="field">
+									<label for="id_credit_years">Lata kreytu: </label></br>
+									<input id="id_credit_years" type="text" name="credit_years" value="<?php out($credit_years) ?>"><br />	
+									</div>
+                                    <div class="field">
+									<label for="id_credit_interest"> Oprocentowanie: </label></br>
+									<input id="id_credit_interest" type="text" name="credit_interest" value="<?php out($credit_interest) ?>"><br />	
+									</div>
+									
+								</div>
 
-<form action="<?php print(_APP_ROOT); ?>/app/calc_credit.php" method="post" class="pure-form pure-form-stacked">
-    <fieldset>
-        <legend>Kalkulator kredytowy</legend></br>
-        <label for="id_credit_value">Kwota kredytu: </label>
-        <input id="id_credit_value" type="text" name="credit_value" value="<?php out($credit_value) ?>"><br />
+								<div class="col-12">
+									<ul class="actions">
+										<li><input type="submit" value="Wylicz" class="button" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</div>
+							</form>
+                            
+				<div class="col-6 col-12-medium">                           
+					<?php
+						if (isset($messages)) {
+        				if(count ($messages) > 0 ) {
+           				 echo '<ol style="margin: 20px; padding: 32px 12px 30px 35px; border-radius: 10px; background-color: #f88; width:320px; font-size:22px">';
+            			foreach ( $messages as $key => $msg) {
+                			echo '<li>'.$msg.'</li>';
+            			}
+            			echo '</ol>';
 
-        <label for="id_credit_years"> Lata kredytu: </label>
-        <input id="id_credit_years" type="text" name="credit_years" value="<?php out($credit_years) ?>"><br />
+       						}
 
-        <label for="id_credit_interest"> Oprocentowanie: </label>
-        <input id="id_credit_interest" type="text" name="credit_interest" value="<?php out($credit_interest) ?>"><br />
+						}
+					?>
+				</div>
 
-        <input type="submit" value="Wylicz" class="pure-button pure-button-primary"/>
-    </fieldset>
-</form>
+				<div class="col-6 col-12-medium">
+					<?php if (isset($result)) { ?>
+						<div style="margin: 20px; padding: 30px; border-radius: 10px; background-color: #98C100; width:320px; font-size:30px">
+						<?php print("Rata miesięczna to: ".round($result)." zł") ; ?> 
+				</div>  
+				<?php } ?>
 
-<?php
-if (isset($messages)) {
-        if(count ($messages) > 0 ) {
-            echo '<ol style="margin: 20px; padding: 15px 12px 12px 30px; border-radius: 10px; background-color: #f88; width:290px;">';
-            foreach ( $messages as $key => $msg) {
-                echo '<li>'.$msg.'</li>';
-            }
-            echo '</ol>';
+				</div>
+				
+							<ul class="copyright">
+								<li>&copy; Untitled Inc. All rights reserved.</li>
+							</ul>
 
-        }
+						</div>
+					</section>
 
-}
-?>
+			</div>
 
-<?php if (isset($result)) { ?>
-    <div style="margin: 20px; padding: 15px; border-radius: 10px; background-color: #98C100; width:290px;">
-    <?php print("Rata miesięczna to: ".$result) ; ?> 
-    </div>  
-<?php } ?>
+		<!-- Scripts -->
+			<script src="<?php print(_APP_URL); ?>/assets/js/jquery.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/jquery.scrollex.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/browser.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/breakpoints.min.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/util.js"></script>
+			<script src="<?php print(_APP_URL); ?>/assets/js/main.js"></script>
 
-</div>
-
-</body>
+	</body>
 </html>
