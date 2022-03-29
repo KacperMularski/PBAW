@@ -39,5 +39,6 @@ class Messages {
 		$this->errors = array ();
 		$this->infos = array ();
 		$this->num = 0;
+		$this->error = false;
 	}
 }

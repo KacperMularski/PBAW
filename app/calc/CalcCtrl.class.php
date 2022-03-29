@@ -2,8 +2,8 @@
 
 require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
 require_once $conf->root_path.'/lib/Messages.class.php';
-require_once $conf->root_path.'/app/CalcForm.class.php';
-require_once $conf->root_path.'/app/CalcResult.class.php';
+require_once $conf->root_path.'/app/calc/CalcForm.class.php';
+require_once $conf->root_path.'/app/calc/CalcResult.class.php';
 
 
 class CalcCtrl {
@@ -11,6 +11,7 @@ class CalcCtrl {
 	private $msgs;   
 	private $form;   
 	private $result; 
+	private $infos;
 	
 
 	public function __construct(){
@@ -81,7 +82,6 @@ class CalcCtrl {
 				
 			$this->result->result = ($this->form->credit_value / ($this->form->credit_years*12)) ;
 			$this->result->result = ($this->result->result * $this->form->credit_interest/100) + $this->result->result ;
-			
 			$this->msgs->addInfo('Wykonano obliczenia.');
 		}
 		
@@ -103,6 +103,6 @@ class CalcCtrl {
 		$smarty->assign('form',$this->form);
 		$smarty->assign('res',$this->result);
 		
-		$smarty->display($conf->root_path.'/app/calc_credit_view.tpl');
+		$smarty->display($conf->root_path.'/app/calc/calc_credit_view.tpl');
 	}
 }

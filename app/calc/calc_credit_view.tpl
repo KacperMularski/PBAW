@@ -1,4 +1,4 @@
-{extends file="../templates/main.html"}
+{extends file="../../templates/main.html"}
 
 {block name=end}Wszelkie prawa zastrzeżone!{/block}
 
@@ -12,7 +12,7 @@
                     </ul>
 					*}
 							
-					<form action="{$conf->app_url}/app/calc_credit.php" method="post">
+					<form action="{$conf->action_root}calcCompute" method="post">
                 
 						<div class="fields">
 							<div class="field">
@@ -70,9 +70,9 @@
 					
 					{*Wynik*}
 					{if isset($res->result)}
-						<h4 class="al">Wynik: </h4>
+						<h4 class="al">Rata miesięczna: </h4>
 						<p class="result">
-						{round($res->result)}
+						{round($res->result)}{" zł"}
 						</p>
 					{/if}
 
