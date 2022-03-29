@@ -4,78 +4,79 @@
 
 {block name=content}
 
-					<h2 class="major">Oblicz</h2>
+			<h2 class="major">Oblicz</h2>
 
-                            {* Przycisk wylogowania
-							<ul class="actions">
-                                <li><a href="{$app_root}/app/security/logout.php" class="button">Wyloguj</a></li>
-                            </ul>
-							*}
+                    {* Przycisk wylogowania
+					<ul class="actions">
+                        <li><a href="{$conf->app_root}/app/security/logout.php" class="button">Wyloguj</a></li>
+                    </ul>
+					*}
 							
-							<form action="{$app_url}/app/calc_credit.php" method="post">
+					<form action="{$conf->app_url}/app/calc_credit.php" method="post">
                 
-								<div class="fields">
-									<div class="field">
-									<label for="id_credit_value">Kwota kredytu: </label></br>
-									<input id="credit_value" type="text" name="credit_value" value="{$form['credit_value']}"><br />	
-									</div>
-									<div class="field">
-									<label for="id_credit_years">Lata kreytu: </label></br>
-									<input id="id_credit_years" type="text" name="credit_years" value="{$form['credit_years']}"><br />	
-									</div>
-                                    <div class="field">
-									<label for="id_credit_interest"> Oprocentowanie: </label></br>
-									<input id="id_credit_interest" type="text" name="credit_interest" value="{$form['credit_interest']}"><br />	
-									</div>
+						<div class="fields">
+							<div class="field">
+							<label for="id_credit_value">Kwota kredytu: </label></br>
+							<input id="credit_value" type="text" name="credit_value" value="{$form->credit_value}"><br />	
+							</div>
+							<div class="field">
+							<label for="id_credit_years">Lata kreytu: </label></br>
+							<input id="id_credit_years" type="text" name="credit_years" value="{$form->credit_years}"><br />	
+							</div>
+                            <div class="field">
+							<label for="id_credit_interest"> Oprocentowanie: </label></br>
+							<input id="id_credit_interest" type="text" name="credit_interest" value="{$form->credit_interest}"><br />	
+							</div>
 									
-								</div>
+						</div>
 
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="Wylicz" class="button" /></li>
-									</ul>
-								</div>
-							</form>
+						<div class="col-12">
+							<ul class="actions">
+								<li><input type="submit" value="Wylicz" class="button" /></li>
+							</ul>
+						</div>
+					</form>
        
-					<div class="col-6 col-12-medium"> 
+					
 
 					{*Błędy*}
-					{if isset($messages)}
-						{if count($messages) > 0} 
-							<h3>Błędy: </h3>
-							<ol>
-							{foreach  $messages as $msg}
+					{if $msgs->isError()}
+						
+				            <h4 class="al">Błędy: </h4>
+							
+							<ol class ="errors">
+							{foreach $msgs->getErrors() as $err}
 							{strip}
-								<li>{$msg}</li>
+								<li>{$err}</li>
 							{/strip}
 							{/foreach}
 							</ol>
-						{/if}
+						
 					{/if}
 					
 					{*Informacje*}
-					{if isset($infos)}
-						{if count($infos) > 0} 
-							<h4>Informacje: </h4>
-							<ol>
-							{foreach  $infos as $msg}
+					{if $msgs->isInfo()}
+						 
+							<h4 class="al">Informacje: </h4>
+							<ol class="infos">
+							{foreach $msgs->getInfos() as $inf}
 							{strip}
-								<li>{$msg}</li>
+								<li>{$inf}</li>
 							{/strip}
 							{/foreach}
 							</ol>
-						{/if}
+						
 					{/if}
 					
 					{*Wynik*}
-					{if isset($result)}
-						<h4>Wynik: </h4>
-						<p>
-						{$result}
+					{if isset($res->result)}
+						<h4 class="al">Wynik: </h4>
+						<p class="result">
+						{round($res->result)}
 						</p>
 					{/if}
 
-					</div>
+					
 				
 {/block}				
 						

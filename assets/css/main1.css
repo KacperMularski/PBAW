@@ -1,0 +1,31 @@
+.errors {
+		padding: 1em 1em 1em 3em;
+		border-radius: 1em;
+		background-color: #f88;
+		color: #222;
+		text-align: left;
+		font-size: 20px;
+	}
+	
+.infos {
+		padding: 1em 1em 1em 3em;
+		border-radius: 1em;
+		background-color: #8f8;
+		color: #222;
+		text-align: left;
+		font-size: 20px;
+	}
+	
+.result {
+		padding: 1em 1em 1em 1.5em;
+		border-radius: 1em;
+		background-color: #ff0;
+		color: #222;
+		text-align: left;
+		font-size: 20px;
+	}
+
+.al {
+	text-align: left;
+	font-size: 16px;
+}
