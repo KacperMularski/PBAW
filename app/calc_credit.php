@@ -1,71 +1,93 @@
 <?php
 require_once dirname(__FILE__).'/../config.php';
+require_once _ROOT_PATH.'/lib/smarty/libs/Smarty.class.php';
 
-include _ROOT_PATH.'/app/security/check.php'; 
+//include _ROOT_PATH.'/app/security/check.php'; 
 
-function getParams( &$credit_value, &$credit_years, &$credit_interest ) { 
+function getParams( &$form ) { 
 
-    $credit_value = isset($_REQUEST['credit_value']) ? $_REQUEST['credit_value'] : null;
-    $credit_years = isset($_REQUEST['credit_years']) ? $_REQUEST['credit_years'] : null;
-    $credit_interest = isset($_REQUEST['credit_interest']) ? $_REQUEST['credit_interest'] : null; 
+    $form['credit_value'] = isset($_REQUEST['credit_value']) ? $_REQUEST['credit_value'] : null;
+    $form['credit_years'] = isset($_REQUEST['credit_years']) ? $_REQUEST['credit_years'] : null;
+    $form['credit_interest'] = isset($_REQUEST['credit_interest']) ? $_REQUEST['credit_interest'] : null; 
 }
 
-function validate( &$credit_value, &$credit_years, &$credit_interest, &$messages ) {
+function validate( &$form, &$messages, &$infos ) {
 
-    if (! (isset($credit_value) && isset($credit_years) && isset($credit_interest) )) {
+    if (! (isset($form['$credit_value']) && isset($form['credit_years']) && isset($form['credit_interest']) )) {
         return false;
         }
 
-    if ($credit_value== "") {
+    $infos [] = 'Przekazano parametry';    
+
+    if ($form['credit_value'] == "") {
         $messages [] = 'Nie podano wartości kredytu!';
         }
 
-    if ($credit_years== "") {
+    if ($form['credit_years'] == "") {
         $messages [] = 'Nie podano lat kredytu!';
         }
 
-    if ($credit_interest== "") {
+    if ($form['credit_interest'] == "") {
         $messages [] = 'Nie podano oprocentowania!';
         }
 
-if (count ($messages) != 0) return false;  
+if (count($messages) == 0) { 
 
-if (! is_numeric($credit_value) ) {
-        $messages [] = 'Pierwsza wartość nie jest liczbą';
+        if (! is_numeric($form['credit_value']) ) {
+                $messages [] = 'Pierwsza wartość nie jest liczbą';
+        }
+
+        if (! is_numeric($form['credit_years']) ) {
+                $messages [] = 'Druga wartość nie jest liczbą';
+        } 
+
+        if (! is_numeric($form['credit_interest']) ) {
+                $messages [] = 'Trzecia wartość nie jest liczbą';
+        }  
 }
 
-if (! is_numeric($credit_years) ) {
-        $messages [] = 'Druga wartość nie jest liczbą';
-} 
-
-if (! is_numeric($credit_interest) ) {
-        $messages [] = 'Trzecia wartość nie jest liczbą';
-}  
-
-if (count ($messages) != 0) return false;
+if (count ($messages) > 0) return false;
 else return true;
+
 }
 
-function process (&$credit_value, &$credit_years, &$credit_interest, &$result)
+function process (&$form, &$result, &$infos)
 {
-    $credit_value = intval($credit_value);
-    $credit_years = intval($credit_years);
-    $credit_interest = intval($credit_interest);
+    $infos [] = 'Parametry poprawne. Wykonuję obliczenia.';
 
-    $result = ($credit_value / ($credit_years*12)) ;
-    $result = ($result * $credit_interest/100) + $result ;
+    $form['credit_value'] = floatval($form['credit_value']);
+    $form['credit_years'] = floatval($form['credit_years']);
+    $form['credit_interest'] = floatval($form['credit_interest']);
+	
+
+    $result = $form['credit_value'] / ($form['credit_years']*12) ;
+    $result = ($result * $form['credit_interest']/100) + $result ;
 
 }
 
-$credit_value = null;
-$credit_years = null;
-$credit_interest = null;
+$form = null;
+$infos = array();
 $result = null;
-$messages = [];
+$messages = array();
 
-getParams($credit_value, $credit_years, $credit_interest);
-if ( validate($credit_value, $credit_years, $credit_interest, $messages )) {
-        process($credit_value, $credit_years, $credit_interest, $result);
+getParams($form);
+if ( validate($form, $messages, $infos )) {
+        process($form, $infos, $messages, $result);
 }
 
-include 'calc_credit_view.php';
+$smarty = new Smarty();
+
+$smarty->assign('app_url',_APP_URL);
+$smarty->assign('root_path',_ROOT_PATH);
+$smarty->assign('page_title','Kalkulator kredytowy');
+$smarty->assign('page_description','kalk');
+$smarty->assign('page_header','Szablony Smarty');
+
+
+$smarty->assign('form',$form);
+$smarty->assign('result',$result);
+$smarty->assign('messages',$messages);
+$smarty->assign('infos',$infos);
+
+
+$smarty->display(_ROOT_PATH.'/app/calc_credit_view.tpl');

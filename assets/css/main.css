@@ -257,6 +257,7 @@ input, select, textarea {
 		letter-spacing: 0.1em;
 		margin: 0 0 1em 0;
 		text-transform: uppercase;
+		
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -272,10 +273,12 @@ input, select, textarea {
 		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
 			padding-bottom: 1em;
 			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			
 		}
 
 	h2 {
 		font-size: 1.2em;
+		align: left;
 	}
 
 	h3 {
@@ -4153,4 +4156,25 @@ input, select, textarea {
 			padding: 2em 1.5em 0.1em 1.5em ;
 		}
 
+	}
+
+	.err {
+		padding: 1em 1em 1em 3em;
+		border-radius: 1em;
+		background-color: #f88;
+		color: #222;
+	}
+	
+	.inf {
+		padding: 1em 1em 1em 3em;
+		border-radius: 1em;
+		background-color: #8f8;
+		color: #222;
+	}
+	
+	.res {
+		padding: 1em 1em 1em 1.5em;
+		border-radius: 1em;
+		background-color: #ff0;
+		color: #222;
 	}
