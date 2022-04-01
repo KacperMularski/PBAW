@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+namespace core;
 
 class Config {
 
