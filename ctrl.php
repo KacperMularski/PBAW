@@ -1,13 +1,11 @@
 <?php
-require_once dirname (__FILE__).'/../config.php';
+require_once 'init.php';
 
-
-$action = $_REQUEST['action'];
 
 switch ($action) {
 	default : 
 	    
-		include_once $conf->root_path.'/app/calc/CalcCtrl.class.php';
+		include_once 'app/controllers/CalcCtrl.class.php';
 		
 		$ctrl = new CalcCtrl ();
 		$ctrl->generateView ();
@@ -15,16 +13,18 @@ switch ($action) {
 	break;
 	case 'calcCompute' :
 		
-		include_once $conf->root_path.'/app/calc/CalcCtrl.class.php';
+		include_once 'app/controllers/CalcCtrl.class.php';
 		
 		$ctrl = new CalcCtrl ();
 		$ctrl->process ();
 		
 	break;
 	case 'action1' :
+		print('action1');
 		
 	break;
 	case 'action2' :
+		print('action2');
 		
 	break;
 }

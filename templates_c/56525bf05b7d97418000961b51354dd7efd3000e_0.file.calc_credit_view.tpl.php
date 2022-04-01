@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-28 19:52:27
+/* Smarty version 4.1.0, created on 2022-04-01 11:32:30
   from 'C:\xampp\htdocs\app_calc\app\calc\calc_credit_view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6241f5dba81022_42145106',
+  'unifunc' => 'content_6246c6ae994133_16607496',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '56525bf05b7d97418000961b51354dd7efd3000e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\app_calc\\app\\calc\\calc_credit_view.tpl',
-      1 => 1648489946,
+      1 => 1648555057,
       2 => 'file',
     ),
   ),
@@ -20,19 +20,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6241f5dba81022_42145106 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6246c6ae994133_16607496 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13810126746241f5dba657c5_84537424', 'end');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16396184336246c6ae893d17_62112670', 'end');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15264090356241f5dba67650_80104263', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20990300946246c6ae8957f2_55254805', 'content');
 ?>
 				
 						
@@ -43,12 +43,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15264090356241f5db
 	<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "../../templates/main.html");
 }
 /* {block 'end'} */
-class Block_13810126746241f5dba657c5_84537424 extends Smarty_Internal_Block
+class Block_16396184336246c6ae893d17_62112670 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'end' => 
   array (
-    0 => 'Block_13810126746241f5dba657c5_84537424',
+    0 => 'Block_16396184336246c6ae893d17_62112670',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,12 +58,12 @@ Wszelkie prawa zastrzeżone!<?php
 }
 /* {/block 'end'} */
 /* {block 'content'} */
-class Block_15264090356241f5dba67650_80104263 extends Smarty_Internal_Block
+class Block_20990300946246c6ae8957f2_55254805 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_15264090356241f5dba67650_80104263',
+    0 => 'Block_20990300946246c6ae8957f2_55254805',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -144,9 +144,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					<?php }?>
 					
 										<?php if ((isset($_smarty_tpl->tpl_vars['res']->value->result))) {?>
-						<h4 class="al">Wynik: </h4>
+						<h4 class="al">Rata miesięczna: </h4>
 						<p class="result">
-						<?php echo round($_smarty_tpl->tpl_vars['res']->value->result);?>
+						<?php echo round($_smarty_tpl->tpl_vars['res']->value->result);
+echo " zł";?>
 
 						</p>
 					<?php }?>

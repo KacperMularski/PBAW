@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-01 11:33:11
-  from 'C:\xampp\htdocs\app_calc\app\calc\calc_credit_view.tpl' */
+/* Smarty version 4.1.0, created on 2022-04-01 16:31:19
+  from 'C:\xampp\htdocs\app_calc\app\views\calc_credit_view.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6246c6d7bc03f2_68892526',
+  'unifunc' => 'content_62470cb7c658f7_83240632',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3a9303c142842fea16688dc3abd0d9a5e044d458' => 
+    'fff2335df4ea9a5efd5013c4da748626dc987632' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\app_calc\\app\\calc\\calc_credit_view.tpl',
-      1 => 1648555057,
+      0 => 'C:\\xampp\\htdocs\\app_calc\\app\\views\\calc_credit_view.tpl',
+      1 => 1648822222,
       2 => 'file',
     ),
   ),
@@ -20,19 +20,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6246c6d7bc03f2_68892526 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62470cb7c658f7_83240632 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14978242596246c6d7baeda4_78096390', 'end');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_183677121862470cb7b71c96_62253181', 'end');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13895808766246c6d7bafbb4_67880034', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_115141741862470cb7b72a97_55077202', 'content');
 ?>
 				
 						
@@ -40,15 +40,15 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13895808766246c6d7
 					
 
 
-	<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "../../templates/main.html");
+	<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'end'} */
-class Block_14978242596246c6d7baeda4_78096390 extends Smarty_Internal_Block
+class Block_183677121862470cb7b71c96_62253181 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'end' => 
   array (
-    0 => 'Block_14978242596246c6d7baeda4_78096390',
+    0 => 'Block_183677121862470cb7b71c96_62253181',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,12 +58,12 @@ Wszelkie prawa zastrzeżone!<?php
 }
 /* {/block 'end'} */
 /* {block 'content'} */
-class Block_13895808766246c6d7bafbb4_67880034 extends Smarty_Internal_Block
+class Block_115141741862470cb7b72a97_55077202 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_13895808766246c6d7bafbb4_67880034',
+    0 => 'Block_115141741862470cb7b72a97_55077202',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
