@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-28 17:53:13
-  from 'C:\xampp\htdocs\test\app\calc_credit_view.tpl' */
+/* Smarty version 4.1.0, created on 2022-04-06 10:51:45
+  from 'C:\xampp\htdocs\app_calc\app\views\LoginView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6241d9e9852667_13934591',
+  'unifunc' => 'content_624d54a124e459_24377032',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7c32202d3be50244d71ac98d58175abfba74bcad' => 
+    '780400d94b8762f7436cf72e5f1d00fc51f177e0' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\test\\app\\calc_credit_view.tpl',
-      1 => 1648482782,
+      0 => 'C:\\xampp\\htdocs\\app_calc\\app\\views\\LoginView.tpl',
+      1 => 1649234747,
       2 => 'file',
     ),
   ),
@@ -20,19 +20,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6241d9e9852667_13934591 (Smarty_Internal_Template $_smarty_tpl) {
+function content_624d54a124e459_24377032 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18183688366241d9e983f4d0_30036913', 'end');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1973265238624d54a123be41_10864043', 'end');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17021914186241d9e9840798_73637311', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_134506610624d54a123d0c0_44545342', 'content');
 ?>
 				
 						
@@ -40,15 +40,15 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17021914186241d9e9
 					
 
 
-	<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "../templates/main.html");
+	<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'end'} */
-class Block_18183688366241d9e983f4d0_30036913 extends Smarty_Internal_Block
+class Block_1973265238624d54a123be41_10864043 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'end' => 
   array (
-    0 => 'Block_18183688366241d9e983f4d0_30036913',
+    0 => 'Block_1973265238624d54a123be41_10864043',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,46 +58,41 @@ Wszelkie prawa zastrzeżone!<?php
 }
 /* {/block 'end'} */
 /* {block 'content'} */
-class Block_17021914186241d9e9840798_73637311 extends Smarty_Internal_Block
+class Block_134506610624d54a123d0c0_44545342 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_17021914186241d9e9840798_73637311',
+    0 => 'Block_134506610624d54a123d0c0_44545342',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
-			<h2 class="major">Oblicz</h2>
+			<h2 class="major">Logowanie</h2>
 
-                    							
-					<form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/app/calc_credit.php" method="post">
+    
+							
+					<form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+login" method="post">
                 
 						<div class="fields">
 							<div class="field">
-							<label for="id_credit_value">Kwota kredytu: </label></br>
-							<input id="credit_value" type="text" name="credit_value" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->credit_value;?>
-"><br />	
+							<label for="id_login">Login: </label></br>
+							<input id="id_login" type="text" name="login" /><br />	
 							</div>
 							<div class="field">
-							<label for="id_credit_years">Lata kreytu: </label></br>
-							<input id="id_credit_years" type="text" name="credit_years" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->credit_years;?>
-"><br />	
+							<label for="id_pass">Hasło: </label></br>
+							<input id="id_pass" type="password" name="pass" /><br />	
 							</div>
-                            <div class="field">
-							<label for="id_credit_interest"> Oprocentowanie: </label></br>
-							<input id="id_credit_interest" type="text" name="credit_interest" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->credit_interest;?>
-"><br />	
-							</div>
+                            
 									
 						</div>
 
 						<div class="col-12">
 							<ul class="actions">
-								<li><input type="submit" value="Wylicz" class="button" /></li>
+								<li><input type="submit" value="Zaloguj" class="button" /></li>
 							</ul>
 						</div>
 					</form>
@@ -106,9 +101,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 										<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isError()) {?>
 						
-							<h3>Błędy: </h3>
-							<div class="err">
-							<ol>
+				            <h4 class="al">Błędy: </h4>
+							
+							<ol class ="errors">
 							<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getErrors(), 'err');
 $_smarty_tpl->tpl_vars['err']->do_else = true;
@@ -120,14 +115,14 @@ $_smarty_tpl->tpl_vars['err']->do_else = false;
 							<?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-							</div></ol>
+							</ol>
 						
 					<?php }?>
 					
 										<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isInfo()) {?>
 						 
-							<h4>Informacje: </h4>
-							<ol>
+							<h4 class="al">Informacje: </h4>
+							<ol class="infos">
 							<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getInfos(), 'inf');
 $_smarty_tpl->tpl_vars['inf']->do_else = true;
@@ -143,13 +138,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 						
 					<?php }?>
 					
-										<?php if ((isset($_smarty_tpl->tpl_vars['res']->value->result))) {?>
-						<h4>Wynik: </h4>
-						<p>
-						<?php echo $_smarty_tpl->tpl_vars['res']->value->result;?>
-
-						</p>
-					<?php }?>
+					
 
 					
 				

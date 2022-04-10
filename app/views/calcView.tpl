@@ -5,12 +5,15 @@
 {block name=content}
 
 			<h2 class="major">Oblicz</h2>
+			<div class="roles">Użytkownik: {$user->login} </br> 
+			Rola: {$user->role}</div>
 
-                    {* Przycisk wylogowania
+                    
 					<ul class="actions">
-                        <li><a href="{$conf->app_root}/app/security/logout.php" class="button">Wyloguj</a></li>
+                        <li><a href="{$conf->action_url}logout" class="button">Wyloguj</a></li>
+						
                     </ul>
-					*}
+					
 							
 					<form action="{$conf->action_root}calcCompute" method="post">
                 
@@ -20,7 +23,7 @@
 							<input id="credit_value" type="text" name="credit_value" value="{$form->credit_value}"><br />	
 							</div>
 							<div class="field">
-							<label for="id_credit_years">Lata kreytu: </label></br>
+							<label for="id_credit_years">Lata kredytu: </label></br>
 							<input id="id_credit_years" type="text" name="credit_years" value="{$form->credit_years}"><br />	
 							</div>
                             <div class="field">

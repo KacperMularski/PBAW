@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-01 11:33:11
-  from 'C:\xampp\htdocs\app_calc\app\calc\calc_credit_view.tpl' */
+/* Smarty version 4.1.0, created on 2022-04-06 11:02:45
+  from 'C:\xampp\htdocs\app_calc\app\views\calcView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6246c6d7bc03f2_68892526',
+  'unifunc' => 'content_624d5735a6b148_67117582',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3a9303c142842fea16688dc3abd0d9a5e044d458' => 
+    '45ce743de7c93ee1d71c03baa0742d2140ebfa68' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\app_calc\\app\\calc\\calc_credit_view.tpl',
-      1 => 1648555057,
+      0 => 'C:\\xampp\\htdocs\\app_calc\\app\\views\\calcView.tpl',
+      1 => 1649235761,
       2 => 'file',
     ),
   ),
@@ -20,19 +20,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6246c6d7bc03f2_68892526 (Smarty_Internal_Template $_smarty_tpl) {
+function content_624d5735a6b148_67117582 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14978242596246c6d7baeda4_78096390', 'end');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_210584289624d5735a439c6_70918961', 'end');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13895808766246c6d7bafbb4_67880034', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1648882334624d5735a452e6_87923415', 'content');
 ?>
 				
 						
@@ -40,15 +40,15 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13895808766246c6d7
 					
 
 
-	<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "../../templates/main.html");
+	<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'end'} */
-class Block_14978242596246c6d7baeda4_78096390 extends Smarty_Internal_Block
+class Block_210584289624d5735a439c6_70918961 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'end' => 
   array (
-    0 => 'Block_14978242596246c6d7baeda4_78096390',
+    0 => 'Block_210584289624d5735a439c6_70918961',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,12 +58,12 @@ Wszelkie prawa zastrzeżone!<?php
 }
 /* {/block 'end'} */
 /* {block 'content'} */
-class Block_13895808766246c6d7bafbb4_67880034 extends Smarty_Internal_Block
+class Block_1648882334624d5735a452e6_87923415 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_13895808766246c6d7bafbb4_67880034',
+    0 => 'Block_1648882334624d5735a452e6_87923415',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -71,8 +71,19 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 
 			<h2 class="major">Oblicz</h2>
+			<div class="roles">Użytkownik: <?php echo $_smarty_tpl->tpl_vars['user']->value->login;?>
+ </br> 
+			Rola: <?php echo $_smarty_tpl->tpl_vars['user']->value->role;?>
+</div>
 
-                    							
+                    
+					<ul class="actions">
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+logout" class="button">Wyloguj</a></li>
+						
+                    </ul>
+					
+							
 					<form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 calcCompute" method="post">
                 
@@ -83,7 +94,7 @@ calcCompute" method="post">
 "><br />	
 							</div>
 							<div class="field">
-							<label for="id_credit_years">Lata kreytu: </label></br>
+							<label for="id_credit_years">Lata kredytu: </label></br>
 							<input id="id_credit_years" type="text" name="credit_years" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->credit_years;?>
 "><br />	
 							</div>

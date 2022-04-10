@@ -66,7 +66,7 @@ class CalcCtrl {
 	}
 	
 	
-	public function process(){
+	public function action_calcCompute(){
 
 		$this->getparams();
 		
@@ -84,18 +84,24 @@ class CalcCtrl {
 		
 		$this->generateView();
 	}
+
+	public function action_calcShow(){
+		getMessages()->addInfo('Witaj w kalkulatorze');
+		$this->generateView();
+	}
 	
 	
 	
 	public function generateView() {
+
+		getSmarty()->assign('user',unserialize($_SESSION['user']));
 		
-		getSmarty()->assign('page_title','Kalkulator kredytowy');
-		getSmarty()->assign('page_description','Calk');
-		getSmarty()->assign('page_header','PHP');
+		getSmarty()->assign('page_title','Kalkulator kredytowy - role');
+
 		
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
 		
-		getSmarty()->display('calc_credit_view.tpl');
+		getSmarty()->display('calcView.tpl');
 	}
 }
