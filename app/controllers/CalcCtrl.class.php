@@ -81,9 +81,30 @@ class CalcCtrl {
 			$this->result->result = ($this->result->result * $this->form->credit_interest/100) + $this->result->result ;
 			getMessages()->addInfo('Wykonano obliczenia.');
 		}
+
+		try {
+
+				getDB() -> insert ("wynik",[
+					"Kwota" => $this->form->credit_value,
+					"Lata" => $this->form->credit_years,
+					"Oprocentowanie" => $this->form->credit_interest,
+					"Rata" => $this->result->result,
+					"Data" => date("Y-m-d H:i:s")
+
+				] );
+
+				getMessages()->addInfo('Poprawnie dodano rekord.');
+
+		} catch (\PDOException $ex) {
+			getMessages()->addError("Błąd bazy danych: ".$ex->getMessage());
+		}
+		
 		
 		$this->generateView();
+
 	}
+
+	
 
 	public function action_calcShow(){
 		getMessages()->addInfo('Witaj w kalkulatorze');
@@ -96,7 +117,7 @@ class CalcCtrl {
 
 		getSmarty()->assign('user',unserialize($_SESSION['user']));
 		
-		getSmarty()->assign('page_title','Kalkulator kredytowy - role');
+		getSmarty()->assign('page_title','Kalkulator kredytowy');
 
 		
 		getSmarty()->assign('form',$this->form);

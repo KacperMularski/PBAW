@@ -11,6 +11,7 @@
                     
 					<ul class="actions">
                         <li><a href="{$conf->action_url}logout" class="button">Wyloguj</a></li>
+						<li><a href="{$conf->action_url}database" class="button">Baza wyników</a></li>
 						
                     </ul>
 					
